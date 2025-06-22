@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router";
 
-function LoginModal() {
+function LogoutModal() {
     const navigate = useNavigate();
 
-    function login()
+    function logout()
     {
         document.getElementById("closeModal").click();
-        navigate('/authenticated/home');
+        navigate('/');
     }
     return (
         <>
@@ -14,16 +14,16 @@ function LoginModal() {
             <div className="modal-dialog">
                 <div className="modal-content rounded-0">
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>
+                        <h1 className="modal-title fs-5" id="exampleModalLabel">LOGOUT</h1>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body fw-lighter">
-                        For this demo application, the application will generate user credentials and automatically
-                        log you in to be able to access the protected routes. Just click the LOGIN button below.
+                        This is a demo application and user information was automatically generated for you. 
+                        By logging out all the data you entered will be lost.
                     </div>
                     <div className="mx-auto mb-4">
                         <button type="button" className="btn btn-secondary rounded-0" data-bs-dismiss="modal" id="closeModal">CLOSE</button>
-                        <button type="button" className="btn btn-primary ms-4" onClick={login}>LOGIN</button>
+                        <button type="button" className="btn btn-primary ms-4" onClick={logout}>LOGOUT</button>
                     </div>
                 </div>
             </div>
@@ -31,4 +31,4 @@ function LoginModal() {
     </>)
 }
 
-export default LoginModal;
+export default LogoutModal;

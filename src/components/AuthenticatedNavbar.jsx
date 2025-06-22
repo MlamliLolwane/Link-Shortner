@@ -1,10 +1,10 @@
 import { NavLink } from "react-router";
-import LoginModal from "./LoginModal";
+import LogoutModal from "./LogoutModal";
 
 function AuthenticatedNavbar() {
     return (
         <>
-            <LoginModal />
+            <LogoutModal />
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <NavLink className="navbar-brand fw-normal" to="/authenticated/home"><span style={{ color: "teal" }}>
