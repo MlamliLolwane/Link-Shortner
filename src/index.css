@@ -95,6 +95,10 @@ box-shadow: none;
   color: turquoise
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: turquoise;
+}
+
 .card :hover{
   cursor: pointer;
 }
