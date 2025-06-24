@@ -1,15 +1,24 @@
 import { NavLink } from "react-router";
 import AuthenticatedNavbar from "../../components/AuthenticatedNavbar";
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import apiClient from "../../apiClient";
 
 function Home() {
     const canvasRef = useRef(null);
     const buttonRef = useRef(null);
+    const [data, setData] = useState("");
 
     useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        fetchData(userId);
         // Example data — replace with your dynamic values
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-        const clicks = [120, 90, 150, 80, 200, 170];
+    }, []);
+
+    useEffect(() => {
+        const months = data.monthlyClicks?.map(click => click.month) || [];
+        const clicks = data.monthlyClicks?.map(click => click.count) || [];
+
+        console.log(clicks)
 
         const chart = new window.Chart(canvasRef.current, {
             type: 'bar',
@@ -44,7 +53,7 @@ function Home() {
 
         // Cleanup on unmount
         return () => chart.destroy();
-    }, []);
+    }, [data]);
 
     useEffect(() => {
         const tooltipTrigger = new window.bootstrap.Tooltip(buttonRef.current);
@@ -54,6 +63,12 @@ function Home() {
             tooltipTrigger.dispose();
         };
     }, []);
+
+    async function fetchData(userId) {
+        const response = await apiClient.get(`dashboard/${userId}`);
+
+        setData(response.data);
+    }
 
     return (
         <>
@@ -67,7 +82,7 @@ function Home() {
                                 <div className="card rounded-0">
                                     <div className="card-body">
                                         <h5 className="card-title">Links</h5>
-                                        <h3 className="card-text turquoise-font">5</h3>
+                                        <h3 className="card-text turquoise-font">{data.totalLinks ?? "loading..."}</h3>
                                     </div>
                                 </div>
                             </NavLink>
@@ -79,7 +94,7 @@ function Home() {
                                 <div className="card rounded-0">
                                     <div className="card-body">
                                         <h5 className="card-title">Clicks Generated</h5>
-                                        <h3 className="card-text turquoise-font">78</h3>
+                                        <h3 className="card-text turquoise-font">{data.totalClicks ?? "loading..."}</h3>
                                     </div>
                                 </div>
                             </NavLink>
@@ -89,7 +104,7 @@ function Home() {
                                 <div className="card rounded-0">
                                     <div className="card-body">
                                         <h5 className="card-title">Referrers</h5>
-                                        <h3 className="card-text turquoise-font">7</h3>
+                                        <h3 className="card-text turquoise-font">{data.uniqueReferrers ?? "loading..."}</h3>
                                     </div>
                                 </div>
                             </NavLink>
