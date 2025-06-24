@@ -26,7 +26,7 @@ function RegisterModal() {
                 <div className="modal-dialog">
                     <div className="modal-content rounded-0">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">REGISTER</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body fw-lighter">
@@ -38,11 +38,13 @@ function RegisterModal() {
                                     <input type="text" className="form-control form-control-sm rounded-0" id="userName" value={userName} onChange={(e) => setUserName(e.target.value)} />
                                     <label for="originaLink">Enter Username</label>
                                 </div>
-
+                                <button type="button" className="nav-link pe-3 pb-3 mx-auto" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                    <u>Already registered? Login </u>
+                                </button>
                                 <div className="text-center mb-2">
-                                    <button type="button" className="d-none nav-link pe-3" 
-                                    data-bs-toggle="modal" data-bs-target="#confirmationModal" id="hiddenMobileCall">
-                                        Hidden <i className="bi bi-person-fill-add"></i>
+                                    <button type="button" className="d-none"
+                                        data-bs-toggle="modal" data-bs-target="#confirmationModal" id="hiddenMobileCall">
+                                        Hidden
                                     </button>
                                     <button type="button" className="btn btn-secondary rounded-0" data-bs-dismiss="modal" id="closeRegisterModal">CLOSE</button>
                                     <button type="submit" className="btn btn-primary ms-4">REGISTER</button>
