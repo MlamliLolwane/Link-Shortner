@@ -1,6 +1,19 @@
+import { useEffect, useState } from "react";
 import AuthenticatedNavbar from "../../components/AuthenticatedNavbar";
+import apiClient from "../../apiClient";
 
 function Referrer() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        fetchData(userId);
+    }, []);
+
+    async function fetchData(userId) {
+        const response = await apiClient.get(`/clicks/referrers/user/${userId}`);
+        setData(response.data);
+    }
     return (
         <>
             <AuthenticatedNavbar />
@@ -26,22 +39,14 @@ function Referrer() {
                                         </tr>
                                     </thead>
                                     <tbody className="fw-lighter">
-                                        <tr>
-                                            <td><a href="https://github.com" className="fw-lighter text-white">
-                                                <u>https://github.com</u>
-                                            </a></td>
-                                            <td>17</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="https://youtube.com" className="fw-lighter text-white">
-                                                <u>https://youtube.com</u></a></td>
-                                            <td>6</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="https://instagram.com" className="fw-lighter text-white">
-                                                <u>https://instagram.com</u></a></td>
-                                            <td>24</td>
-                                        </tr>
+                                        {data?.map((d) => (
+                                            <tr>
+                                                <td><a href={d.referrer} className="fw-lighter text-white">
+                                                    <u>{d.referrer}</u>
+                                                </a></td>
+                                                <td>{d.clickCount}</td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
