@@ -1,5 +1,33 @@
+import { useNavigate } from "react-router";
+import apiClient from "./apiClient";
 import Navbar from "./components/Navbar"
+import { useState } from "react";
 function App() {
+  const navigate = useNavigate();
+  const [originalUrl, setOriginalUrl] = useState("");
+
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    let response = await apiClient.post('/link', { originalUrl: originalUrl, userId: 0 });
+    const { userId, click, ...filteredLink } = response.data;
+
+    const storedData = localStorage.getItem('links');
+    if (storedData) {
+      let links = JSON.parse(storedData) || [];
+      links.push(filteredLink);
+      localStorage.setItem('links', JSON.stringify(links));
+    }
+    else {
+      let arr = [];
+      arr.push(filteredLink);
+      localStorage.setItem('links', JSON.stringify(arr));
+    }
+
+    navigate("/links");
+  }
+
   return (
     <>
       <Navbar />
@@ -15,9 +43,10 @@ function App() {
                 Links shortened before logging in will be stored in a cookie and
                 will be erased when you delete cookies.
               </p>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3 mx-3">
-                  <input type="email" className="form-control rounded-0" id="originaLink" />
+                  <input type="url" className="form-control rounded-0" id="originalUrl"
+                    value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} required />
                   <label for="originaLink">Enter link to shorten</label>
                 </div>
                 <button type="submit" className="btn btn-primary ms-3">SHORTEN LINK</button>
@@ -34,10 +63,10 @@ function App() {
                 </h4>
                 <p className="fw-lighter text-center">
                   This is a demo application and it's intended to mimic a url shortening service
-                  i.e. take a longer link <u>https://github.com/MlamliLolwane</u>and shorten it to
-                  something along the lines of <u>https://bbd.ly/abcdef </u>. The actual "shortened" link will
+                  i.e. take a longer link <u>https://github.com/MlamliLolwane</u> and shorten it to
+                  something along the lines of <u>https://sho.rt/abcdef </u>. The actual "shortened" link will
                   be longer since I am using a free domain provided by vercel. This is just proof of
-                  concept on how the application will work when I have a shorter domain like <u> https://bbd.ly </u>
+                  concept on how the application will work when I have a shorter domain like <u> https://sho.rt </u>
 
                   <br /><br />You can watch the video below to see how the application works or just explore it yourself.
                 </p>
@@ -57,7 +86,7 @@ function App() {
         </div>
         <div className="border-top">
           <p className="fw-ligter py-4 text-center">
-             Made with <i class="bi bi-heart-fill"></i> by Mlamli Lolwane
+            Made with <i class="bi bi-heart-fill"></i> by Mlamli Lolwane
           </p>
         </div>
       </main>

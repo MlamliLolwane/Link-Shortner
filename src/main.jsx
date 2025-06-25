@@ -5,6 +5,8 @@ import './index.css'
 import App from './App.jsx'
 import About from './views/About.jsx';
 import Contact from './views/Contact.jsx';
+import Link from './views/Link.jsx';
+import AddLinkAnonymous from './views/AddLink.jsx';
 import Home from './views/authenticated/Home.jsx';
 import AuthenticatedAbout from './views/authenticated/AuthenticatedAbout.jsx';
 import AuthenticatedContact from './views/authenticated/AuthenticatedContact.jsx';
@@ -29,6 +31,8 @@ createRoot(document.getElementById('root')).render(
           <Route index element={<App />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="links" element={< Link/>} />
+          <Route path="add-link" element={< AddLinkAnonymous/>} />
         </Route>
         <Route
           element={
