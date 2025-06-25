@@ -1,6 +1,24 @@
+import { useEffect, useState } from "react";
 import AuthenticatedNavbar from "../../components/AuthenticatedNavbar";
+import { useSearchParams } from "react-router";
+import apiClient from "../../apiClient";
 
 function ViewLink() {
+    const [searchParams] = useSearchParams();
+    const linkId = searchParams.get('linkId');
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        console.log(location.state)
+        const userId = localStorage.getItem('userId');
+        fetchData(userId, linkId);
+    }, []);
+
+    async function fetchData(userId, linkId) {
+        const response = await apiClient.get(`link/referrer-stats/user/${userId}/link/${linkId}`);
+        setData(response.data);
+    }
+
     return (
         <>
             <AuthenticatedNavbar />
@@ -18,15 +36,15 @@ function ViewLink() {
                     <div className="row">
                         <div className="col border pt-3">
                             <p className="fw-lighter">
-                                
-                                Original Link: <a href="https://github.com/MlamliLolwane" className="fw-lighter text-white">
-                                    <u>https://github.com/MlamliLolwane</u>
+
+                                Original Link: <a href={data.originalUrl} className="fw-lighter text-white">
+                                    <u>{data.originalUrl}</u>
                                 </a>
                             </p>
 
                             <p className="fw-lighter">
-                                Shortened Link: <a href="https://sht.ly/txldat" className="fw-lighter text-white">
-                                    <u>https://sht.ly/txldat</u>
+                                Shortened Link: <a href={data.shortenedUrl} className="fw-lighter text-white">
+                                    <u>{data.shortenedUrl}</u>
                                 </a>
                             </p>
                             <table className="table table-hover my-4">
@@ -37,22 +55,14 @@ function ViewLink() {
                                     </tr>
                                 </thead>
                                 <tbody className="fw-lighter">
-                                    <tr>
-                                        <td><a href="https://github.com" className="fw-lighter text-white">
-                                            <u>https://github.com</u>
-                                        </a></td>
-                                        <td>17</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="https://youtube.com" className="fw-lighter text-white">
-                                            <u>https://youtube.com</u></a></td>
-                                        <td>6</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="https://instagram.com" className="fw-lighter text-white">
-                                            <u>https://instagram.com</u></a></td>
-                                        <td>24</td>
-                                    </tr>
+                                    {data.referrers?.map((r) => (
+                                        <tr>
+                                            <td><a href={r.referrer} className="fw-lighter text-white">
+                                                <u>{r.referrer}</u>
+                                            </a></td>
+                                            <td>{r.clickCount}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
