@@ -5,6 +5,7 @@ function LogoutModal() {
 
     function logout()
     {
+        localStorage.removeItem('userId');
         document.getElementById("closeModal").click();
         navigate('/');
     }
