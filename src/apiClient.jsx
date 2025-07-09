@@ -10,7 +10,7 @@ let baseURI = '';
 if (import.meta.env.MODE === 'development') {
   baseURI = 'http://localhost:5080/api/';
 } else if (import.meta.env.MODE === 'production') {
-  baseURI = 'https://admin-api.bigodeals.net'; //
+  baseURI = 'https://lynkly.bigodeals.net'; //
 }
 
 const apiClient = axios.create({
