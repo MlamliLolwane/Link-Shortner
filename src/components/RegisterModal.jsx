@@ -13,7 +13,7 @@ function RegisterModal() {
         try {
             const response = await apiClient.post('/register', { userName: userName });
             localStorage.setItem('userId', response.data.id);
-            document.getElementById("hiddenMobileCall").click();
+            //document.getElementById("hiddenMobileCall").click();
         } catch (error) {
             console.log(error);
         }
