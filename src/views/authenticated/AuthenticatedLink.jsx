@@ -51,7 +51,7 @@ function AuthenticatedLink() {
                                     <tbody className="fw-lighter">
                                         {data?.map((d) => (
                                             <tr>
-                                                <td style={{width:"10px"}}><a href={d.originalUrl} target="_blank" className="fw-lighter text-white">
+                                                <td style={{width:"6px"}}><a href={d.originalUrl} target="_blank" className="fw-lighter text-white">
                                                     <u>{d.originalUrl}</u>
                                                 </a></td>
                                                 <td><a href={d.shortenedUrl} target="_blank" className="fw-lighter text-white">
