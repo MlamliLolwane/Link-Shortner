@@ -41,7 +41,7 @@ function AuthenticatedLink() {
                                 <table className="table table-hover my-4">
                                     <thead>
                                         <tr>
-                                            <th scope="col" style={{width:"10px"}}>Original Link</th>
+                                            <th scope="col">Original Link</th>
                                             <th scope="col">Shortened Link</th>
                                             <th scope="col">Created</th>
                                             <th scope="col">Clicks</th>
@@ -51,7 +51,7 @@ function AuthenticatedLink() {
                                     <tbody className="fw-lighter">
                                         {data?.map((d) => (
                                             <tr>
-                                                <td><a href={d.originalUrl} target="_blank" className="fw-lighter text-white">
+                                                <td style={{width:"10px"}}><a href={d.originalUrl} target="_blank" className="fw-lighter text-white">
                                                     <u>{d.originalUrl}</u>
                                                 </a></td>
                                                 <td><a href={d.shortenedUrl} target="_blank" className="fw-lighter text-white">
