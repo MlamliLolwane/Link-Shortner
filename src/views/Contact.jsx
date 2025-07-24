@@ -1,6 +1,19 @@
 import Navbar from "../components/Navbar";
+import {useState, useEffect} from 'react';
 
 function Contact() {
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    async function fetchData() {
+        const response = await fetch('contact.json');
+        const jsonRes = await response.json();
+        setData(jsonRes);
+    }
+
     return (
         <>
             <Navbar />
@@ -12,20 +25,20 @@ function Contact() {
                         me then you can reach me through one of the following channels:
                     </p>
                     <p className="fw-lighter">
-                        <i class="bi bi-envelope-at-fill"></i> Email: <a href="mailto:mrlolwane96@gmail.com"
+                        <i class="bi bi-envelope-at-fill"></i> Email: <a href={data?.email}
                             className="fw-lighter d-inline nav-link">
-                            <u>mrlolwane96@gmail.com</u>
+                            <u>{data?.email}</u>
                         </a>
                     </p>
                     <p className="fw-lighter">
-                        <i class="bi bi-telephone-forward-fill"></i> Call: <u> 072 9252 248 </u> / <u> 067 1974 979 </u>
+                        <i class="bi bi-telephone-forward-fill"></i> Call: <u> {data?.contact} </u> / <u> {data?.alternativeContact} </u>
                     </p>
                     <p className="fw-lighter">
-                        <i class="bi bi-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mlamli-lolwane-3ba96b196/"
+                        <i class="bi bi-linkedin"></i> LinkedIn: <a href={data?.linkedin}
                             target="_blank" className="fw-lighter d-inline nav-link"><u>LinkedIn Profile</u></a>
                     </p>
                     <p className="fw-lighter">
-                        <i class="bi bi-github"></i> Github: <a href="https://github.com/MlamliLolwane"
+                        <i class="bi bi-github"></i> Github: <a href={data?.github}
                             target="_blank" className="fw-lighter d-inline nav-link"><u>Github Profile</u></a>
                     </p>
                 </div>
