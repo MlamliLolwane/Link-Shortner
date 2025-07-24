@@ -10,7 +10,7 @@ function AuthenticatedContact() {
 
     async function fetchData()
     {
-        const response = await fetch('contact.json');
+        const response = await fetch('/contact.json');
         const jsonRes = await response.json();
         setData(jsonRes);
     }
@@ -27,7 +27,7 @@ function AuthenticatedContact() {
                     <p className="fw-lighter">
                         <i class="bi bi-envelope-at-fill"></i> Email: <a href={data?.email}
                             className="fw-lighter d-inline nav-link">
-                            <u>{data?.email}</u>
+                            <u>mrlolwane96@gmail.com</u>
                         </a>
                     </p>
                     <p className="fw-lighter">

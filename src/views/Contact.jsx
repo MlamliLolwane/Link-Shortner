@@ -27,7 +27,7 @@ function Contact() {
                     <p className="fw-lighter">
                         <i class="bi bi-envelope-at-fill"></i> Email: <a href={data?.email}
                             className="fw-lighter d-inline nav-link">
-                            <u>{data?.email}</u>
+                            <u>mrlolwane96@gmail.com</u>
                         </a>
                     </p>
                     <p className="fw-lighter">
