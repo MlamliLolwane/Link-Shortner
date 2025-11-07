@@ -43,7 +43,7 @@ function Navbar() {
                             </li>
                             </li>
                         </ul>
-                        <ul className="navbar-nav d-none d-lg-block">
+                        <ul className="navbar-nav">
                             <li className="nav-item">
                             <button type="button" className="nav-link pe-3" data-bs-toggle="modal" data-bs-target="#registerModal">
                                 REGISTER <i className="bi bi-person-fill-add"></i>
