@@ -16,7 +16,7 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                            <li className="nav-item px-4">
+                            <li className="nav-item px-lg-4">
                                 <NavLink className="nav-link" aria-current="page" to="/">
                                     HOME <i className="bi bi-house-fill"></i></NavLink>
                             </li>
