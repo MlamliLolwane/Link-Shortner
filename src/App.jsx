@@ -67,19 +67,7 @@ function App() {
                   something along the lines of <u>https://sho.rt/abcdef </u>. The actual "shortened" link will
                   be longer since I am using a free domain provided by vercel. This is just proof of
                   concept on how the application will work when I have a shorter domain like <u> https://sho.rt </u>
-
-                  <br /><br />You can watch the video below to see how the application works or just explore it yourself.
                 </p>
-                <div className="video-container">
-                  <iframe
-                    width="700"
-                    height="315"
-                    src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
               </div>
             </div>
           </div>
