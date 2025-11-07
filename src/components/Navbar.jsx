@@ -32,8 +32,18 @@ function Navbar() {
                                 <NavLink className="nav-link" to="/links">LINKS <i className="bi bi-link-45deg"></i>
                                 </NavLink>
                             </li>
+                            <li className="nav-item d-lg-none">
+                                <button type="button" className="nav-link pe-3" data-bs-toggle="modal" data-bs-target="#registerModal">
+                                REGISTER <i className="bi bi-person-fill-add"></i>
+                            </button>
+                            <li className="nav-item d-lg-none">
+                                <button type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                LOGIN <i className="bi bi-person-circle"></i>
+                            </button>
+                            </li>
+                            </li>
                         </ul>
-                        <ul className="navbar-nav">
+                        <ul className="navbar-nav d-lg-block">
                             <button type="button" className="nav-link pe-3" data-bs-toggle="modal" data-bs-target="#registerModal">
                                 REGISTER <i className="bi bi-person-fill-add"></i>
                             </button>
