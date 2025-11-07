@@ -43,13 +43,17 @@ function Navbar() {
                             </li>
                             </li>
                         </ul>
-                        <ul className="navbar-nav d-none d-lg-inline">
+                        <ul className="navbar-nav d-none d-lg-block">
+                            <li className="nav-item">
                             <button type="button" className="nav-link pe-3" data-bs-toggle="modal" data-bs-target="#registerModal">
                                 REGISTER <i className="bi bi-person-fill-add"></i>
                             </button>
+                            </li>
+                            <li className="nav-item">
                             <button type="button" className="nav-link" data-bs-toggle="modal" data-bs-target="#loginModal">
                                 LOGIN <i className="bi bi-person-circle"></i>
                             </button>
+                            </li>
                         </ul>
                     </div>
                 </div>
