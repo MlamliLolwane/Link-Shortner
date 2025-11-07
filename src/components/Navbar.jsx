@@ -24,7 +24,7 @@ function Navbar() {
                                 <NavLink className="nav-link" to="/about">ABOUT <i className="bi bi-info-circle-fill"></i>
                                 </NavLink>
                             </li>
-                            <li className="nav-item px-4">
+                            <li className="nav-item px-lg-4">
                                 <NavLink className="nav-link" to="/contact">CONTACT <i className="bi bi-telephone-fill"></i>
                                 </NavLink>
                             </li>
