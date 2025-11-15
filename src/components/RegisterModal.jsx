@@ -30,8 +30,8 @@ function RegisterModal() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body fw-lighter">
-                            <p>Welcome to the Link Shortner demo. Register with an email address.
-                                If you have already registered, then click on the Login link below.</p>
+                            <p>Welcome to the Link Shortner demo. Register with an email address. After registering then click
+                            on the Login link to access your account</p>
 
                             <form onSubmit={handleSubmit}>
                                 <div className="form-floating mb-3">
