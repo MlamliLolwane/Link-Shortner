@@ -24,7 +24,7 @@ function App() {
       arr.push(filteredLink);
       localStorage.setItem('links', JSON.stringify(arr));
     }
-
+ 
     navigate("/links");
   }
 
