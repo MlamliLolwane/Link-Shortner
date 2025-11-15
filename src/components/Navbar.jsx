@@ -28,10 +28,6 @@ function Navbar() {
                                 <NavLink className="nav-link" to="/contact">CONTACT <i className="bi bi-telephone-fill"></i>
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/links">LINKS <i className="bi bi-link-45deg"></i>
-                                </NavLink>
-                            </li>
                             <li className="nav-item d-lg-none">
                                 <button type="button" className="nav-link pe-3" data-bs-toggle="modal" data-bs-target="#registerModal">
                                 REGISTER <i className="bi bi-person-fill-add"></i>
