@@ -30,7 +30,7 @@ function RegisterModal() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body fw-lighter">
-                            <p>Welcome to the Link Shortner demo. Register with a username and the system will automatically log you in.
+                            <p>Welcome to the Link Shortner demo. Register with an email address.
                                 If you have already registered, then click on the Login link below.</p>
 
                             <form onSubmit={handleSubmit}>
