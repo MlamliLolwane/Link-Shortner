@@ -39,7 +39,7 @@ function App() {
                 display: 'flex', flexDirection: 'column', justifyContent: 'center',
                 alignItems: 'center', height: '80vh'
               }}>
-                <p style={{ fontSize: '90px' }} className='fw-bold text-center'>Link Shortner</span></p>
+                <p style={{ fontSize: '90px' }} className='fw-bold text-center'>Link Shortner</p>
                 <h3 className='fw-light'>
                   Please register or login to access your links
                   {/* Hi and welcome to Project Nemo. An ethical phishing tool
