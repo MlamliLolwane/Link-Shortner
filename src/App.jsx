@@ -32,25 +32,21 @@ function App() {
     <>
       <Navbar />
       <main>
-        <div className="border d-flex justify-content-center align-items-center" style={{ minHeight: '60vh' }}>
-          <div>
-            <div>
-              <h4 className="text-center">
-                WELCOME TO LINK SHORTNER
-              </h4>
-              <p className="fw-lighter text-center px-3">
-                You can use this service to shorten your links. <br />
-                Links shortened before logging in will be stored in a cookie and
-                will be erased when you delete cookies.
-              </p>
-              <form onSubmit={handleSubmit}>
-                <div className="form-floating mb-3 mx-3">
-                  <input type="url" className="form-control rounded-0" id="originalUrl"
-                    value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} required />
-                  <label for="originaLink">Enter link to shorten</label>
-                </div>
-                <button type="submit" className="btn btn-primary ms-3">SHORTEN LINK</button>
-              </form>
+        <div className="container">
+          <div className="row border-bottom">
+            <div className="col">
+              <div style={{
+                display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                alignItems: 'center', height: '80vh'
+              }}>
+                <p style={{ fontSize: '90px' }} className='fw-bold text-center'>Link Shortner</span></p>
+                <h3 className='fw-light'>
+                  Please register or login to access your links
+                  {/* Hi and welcome to Project Nemo. An ethical phishing tool
+                  developed by Mlamli Lolwane as part of his portfolio project to demonstrate his
+                  information security skills. */}
+                </h3>
+              </div>
             </div>
           </div>
         </div>
